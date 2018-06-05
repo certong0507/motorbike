@@ -1,0 +1,176 @@
+.main-navigation {
+	display: inline-block;
+	width: 100%;
+
+	ul {
+		display: none;
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+
+		ul {
+			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+			float: left;
+			position: absolute;
+			top: 1.1em;
+			left: -999em;
+			z-index: 99999;
+
+			ul {
+				left: -999em;
+				top: 0;
+			}
+
+			li {
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+				}
+			}
+
+			a {
+				width: 200px;
+			}
+
+			:hover > a,
+			.focus > a {
+			}
+
+			a:hover,
+			a.focus {
+			}
+		}
+
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
+		}
+	}
+	li {
+		display: inline-block;
+		margin-right: 10px;
+		vertical-align: middle;
+		position: relative;
+
+		&:hover > a,
+		&.focus > a {
+		}
+
+		&:last-child {
+			margin: 0;
+		}
+
+		&.current_page_item > a,
+		&.current-menu-item > a,
+		&.current_page_ancestor > a {
+			color: #767676;
+		}
+	}
+	a {
+		display: block;
+		text-decoration: none;
+	}
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: block;
+	}
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 1.5em;
+		overflow: hidden;
+	}
+
+	& .nav-previous {
+		float: left;
+		width: 50%;
+	}
+
+	& .nav-next {
+		float: right;
+		text-align: right;
+		width: 50%;
+	}
+}
+
+
+ul#footer-menu {
+	
+	li {
+		display: inline-block;
+		list-style: none;
+		height: 100%;
+		margin-right: 25px;
+		vertical-align: top;
+
+		a {
+			color: #fff;
+			display: block;
+		}
+		
+		&:last-child {
+			margin: 0;
+
+			a {
+				font-weight: 500 !important;
+			}
+		}
+	}
+
+	> li > a {
+		cursor: default;
+	}
+
+	li:last-child {
+		margin: 0;
+		
+		a {
+			font-weight: 500 !important;
+		}
+
+		ul.sub-menu {
+			li {
+				a {
+					font-weight: 500 !important;
+				}
+			}
+		}
+	}
+
+	ul.sub-menu {
+		display: block;
+		height: 100%;
+		margin: 0;
+		overflow: hidden;
+		padding: 0;
+		width: 100%;
+
+		li {
+			border: none;
+			display: block;
+
+			&:last-child {
+				margin: 0;
+
+				a {
+					font-weight: 100 !important;
+				}
+			}
+		}
+	}
+}
