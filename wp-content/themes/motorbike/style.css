@@ -5499,4 +5499,31 @@ h4 {
   #new_arrivals_wrapper div {
     padding: 5px 10px; }
 
+.accordion {
+  width: 100%;
+  background-color: #eee;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px; }
+  .accordion:hover {
+    cursor: pointer; }
+  .accordion::after {
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px; }
+
+.accordion_content {
+  margin-left: 10px;
+  padding-left: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out; }
+
+.accordion_active::after {
+  content: "\2796";
+  /* Unicode character for "minus" sign (-) */ }
+
 /*# sourceMappingURL=style.css.map */

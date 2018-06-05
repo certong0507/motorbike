@@ -36,4 +36,15 @@ $( document ).ready(function() {
         page: 12,
         pagination: true
     });
+
+    $('.accordion').on('click', function(){
+        this.classList.toggle("accordion_active");
+
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight){
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    });
 });
