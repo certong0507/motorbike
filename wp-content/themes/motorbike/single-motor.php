@@ -52,8 +52,12 @@ $gallery = get_field('gallery'); ?>
                     $deposit = get_sub_field('deposit');
                     $rate = get_sub_field('rate'); ?>
 
-                    <div class="accordion" id="<?php echo $title; ?>"><?php echo $title; ?></div>
-                    <div class="accordion_content"><?php echo $deposit; ?></div>
+                        <div class="accordion" id="<?php echo $title; ?>"><?php echo $title; ?></div>
+                        <div class="accordion_content">
+                            <!-- Plan's content: -->
+                            <?php echo $deposit; ?>%
+                            <?php echo $rate; ?>%
+                        </div>
                     <?php endwhile; ?>
                 </div>
 
