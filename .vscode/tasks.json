@@ -9,7 +9,7 @@
             "command": "sass",
             "args": [
                 "--watch",
-                "."
+                "./wp-content/themes/motorbike/sass/style.scss:./wp-content/themes/motorbike/style.css"
             ],
             "group": "build",
             "presentation": {
