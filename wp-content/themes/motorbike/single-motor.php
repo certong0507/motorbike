@@ -58,6 +58,7 @@ $gallery = get_field('gallery'); ?>
                             <?php echo $deposit; ?>%
                             <?php echo $rate; ?>%
                         </div>
+                        
                     <?php endwhile; ?>
                 </div>
 
