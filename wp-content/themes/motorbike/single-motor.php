@@ -47,18 +47,44 @@ $gallery = get_field('gallery'); ?>
                 </div>
 
                 <div>
-                    <?php while (have_rows('plans')) : the_row();
-                    $title = get_sub_field('title');
-                    $deposit = get_sub_field('deposit');
-                    $rate = get_sub_field('rate'); ?>
+                    <?php 
+                        function calculateDepositPrice($price, $deposit) {
+                            return round(($price * $deposit) / 100);
+                        }            
 
+                        function calculateMonthlyPayment($price, $rate, $depositPrice, $month) {
+                            $priceAfterDeposit = $price - $depositPrice;
+                            $interestRateByYear = ($rate * $month) / 100;
+                            return round((($priceAfterDeposit * $interestRateByYear) + $priceAfterDeposit) / $month);
+                        }
+                    ?>
+
+                    <?php while (have_rows('plans')) : the_row();
+                        $title = get_sub_field('title');
+                        $deposit = get_sub_field('deposit');
+                        $rate = get_sub_field('rate'); 
+                        $maxYear = get_sub_field('maxyear');
+                        $price = get_field('price');               
+
+                        $depositPrice = calculateDepositPrice($price, $deposit);
+                        $monthlyPaymentPrice = 0;
+                        $month = 0;
+                    ?>
                         <div class="accordion" id="<?php echo $title; ?>"><?php echo $title; ?></div>
                         <div class="accordion_content">
                             <!-- Plan's content: -->
-                            <?php echo $deposit; ?>%
-                            <?php echo $rate; ?>%
+                           Deposit <?php echo $deposit; ?>%
+                           (<?php echo $rate; ?>% Per Month)                  
+                           <div>Deposit Price RM <?php echo $depositPrice; ?></div>
+                           <?php
+                                for ($i = 2; $i <= $maxYear; $i++) {
+                                    $month = $i * 12;
+                                    $monthlyPaymentPrice = calculateMonthlyPayment($price, $rate, $depositPrice, $month);
+                                    echo "<div>RM " . $monthlyPaymentPrice . " X " . $month . " months (" . $i . "years)</div>";
+                                }                           
+                           ?>
+
                         </div>
-                        
                     <?php endwhile; ?>
                 </div>
 
