@@ -99,5 +99,10 @@ $gallery = get_field('gallery'); ?>
                 </a>
             </div>
         </div>
+        </br>
+        <h2>Description</h2>
+        <div> 
+            <?php the_field('description'); ?>
+        </div>
     </div>
 <?php get_footer(); ?>
