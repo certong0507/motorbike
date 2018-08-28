@@ -982,7 +982,7 @@ if(isset($_POST['Action'])){
 			'login_bg_effect' => 'pattern-1',
 			'login_bg_image' => WEBLIZAR_NALF_PLUGIN_URL.'/images/3d-background.jpg',
 			'login_form_opacity' => '10',
-			'login_form_width' => '520',
+			'login_form_width' => '358',
 			'login_form_radius' => '10',
 			'login_border_style' => 'solid',
 			'login_border_thikness' => '4',

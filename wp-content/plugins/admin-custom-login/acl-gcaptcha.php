@@ -7,8 +7,14 @@ class ACL_gcaptcha_Login_Form {
 	/** class constructor */
 	public function __construct() {
     $g_page = unserialize(get_option('Admin_custome_login_gcaptcha'));
-    $site_key = $g_page['site_key'];
-    $secret_key = $g_page['secret_key'];
+    if(isset($g_page['site_key']) && isset($g_page['secret_key'])){
+    	 $site_key = $g_page['site_key'];
+    	 $secret_key = $g_page['secret_key'];
+	    }else{
+	    	 $site_key = '';
+	    	 $secret_key = '';
+	    }
+   
 		$this->public_key  = $site_key;
 		$this->private_key = $secret_key;
 
@@ -21,8 +27,7 @@ class ACL_gcaptcha_Login_Form {
 
 
 	/** Output the ACL_gcaptcha form field. */
-	public function captcha_display() {
-	 ?>
+	public function captcha_display() { ?>
 	 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 		<div class="g-recaptcha" data-sitekey="<?php echo $this->public_key; ?>" style="margin-bottom:20px;"></div>
         <noscript>
@@ -78,8 +83,13 @@ class ACL_gcaptcha_Login_Form {
 
 		// make a GET request to the Google reCAPTCHA Server
 		$g_page = unserialize(get_option('Admin_custome_login_gcaptcha'));
-	    $site_key = $g_page['site_key'];
-	    $secret_key = $g_page['secret_key'];
+	    if(isset($g_page['site_key']) && isset($g_page['secret_key'])){
+	    	 $site_key = $g_page['site_key'];
+	    	 $secret_key = $g_page['secret_key'];
+	    }else{
+	    	 $site_key = '';
+	    	 $secret_key = '';
+	    }
 		$request = wp_remote_get(
 			'https://www.google.com/recaptcha/api/siteverify?secret=' . $secret_key . '&response=' . $response . '&remoteip=' . $remote_ip
 		);

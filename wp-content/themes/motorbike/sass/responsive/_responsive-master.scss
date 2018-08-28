@@ -28,26 +28,6 @@
 }
 
 @media (max-width: $screen-md-min) {
-
-    .background_gradient{
-        bottom: 0 !important;
-    }
-
-    #responsive-menu-button{
-        box-shadow: none;
-    }
-
-    .navigation-top{
-        display: none;
-    }
-
-    .single_brand_motor{
-        height: auto !important;
-    }
-
-    .single_brand_motor_image_wrapper{
-        height: auto !important;
-    }
 }
 
 @media (max-width: 950px) {

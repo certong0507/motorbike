@@ -4,7 +4,7 @@ Donate link: http://www.weblizar.com/
 Tags: custom login page, custom admin login, custom login, customize wordpress login page, design wordpress login
 Requires at least: 4.0
 Tested up to: 4.9.6
-Stable tag: 2.6.0
+Stable tag: 2.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,7 +56,6 @@ In this plugin you will able to add social icon to link your social profile with
 * Flickr
 * Digg
 * Tumblr
-* Vkontakte
 * Skype
 * Instagram
 
@@ -122,6 +121,7 @@ If you have any question contact us at here: [Plugin Support Forum ](http://word
 
 For more information, see [Weblizar](http://www.weblizar.com/)
 
+= 2.6.1 - Bug fixed undefined variables + Social icon color bug fixed.
 = 2.6.0 - Add Google Captcha settings + Update Font Awesome Library + Update code of google font family + Add Offers Page + Add Display note to user above login form setting + Add tagline message below login form setting + Plugin tested with latest WordPress 4.9.6 version update
 = 2.5.9 - Plugin tested with latest WordPress 4.9.5 version update
 = 2.5.8 - Plugin text domain updated according to Wordpress.org Guideline

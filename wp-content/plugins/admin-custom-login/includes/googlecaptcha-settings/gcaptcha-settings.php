@@ -279,7 +279,7 @@ if(isset($_POST['Action'])) {
 			
 			'site_key'=>'',
 			'secret_key'=>'',
-			'login_enable_gcaptcha'=>'yes',
+			'login_enable_gcaptcha'=>'no',
 			
 		));
 		update_option('Admin_custome_login_gcaptcha', $g_page);

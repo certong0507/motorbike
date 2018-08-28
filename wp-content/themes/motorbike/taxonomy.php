@@ -22,7 +22,7 @@ get_header(); ?>
 
                     if( !get_field('condition') ):?>
 
-                    <li class="col-lg-3 col-md-6 col-xs-12">
+                    <li class=" col-lg-3 col-md-6 col-xs-12">
                         <?php get_template_part( 'template-parts/post/content', get_post_taxonomies()[0]); ?>
                     </li>
                 <?php 
