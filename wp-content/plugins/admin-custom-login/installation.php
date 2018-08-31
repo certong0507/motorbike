@@ -5,7 +5,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 $login_Version = unserialize(get_option('Admin_custome_login_Version'));
 $Version = $login_Version['Version'];
 if(!isset($Version)){
-	
 	$login_Version= serialize(array(
 		'Version' => '1.0'
 	));
@@ -16,7 +15,7 @@ if(!isset($Version)){
 	));
 	add_option("Admin_custome_login_dashboard", $dashboard_page);
 	
-	$top_page= serialize(array(
+	$top_page = serialize(array(
 		'top_bg_type'=>'static-background-image',
 		'top_color' => '#f9fad2',
 		'top_image' =>   WEBLIZAR_NALF_PLUGIN_URL.'/images/3d-background.jpg',
@@ -29,7 +28,7 @@ if(!isset($Version)){
 	));
 	add_option("Admin_custome_login_top", $top_page);
 	
-	$login_page= serialize(array(
+	$login_page = serialize(array(
 		'login_form_position' => 'default',
 		'login_form_float' => 'center',
 		'login_form_left'=>'700',
@@ -53,10 +52,14 @@ if(!isset($Version)){
 		'log_form_above_msg' => '',
 		'login_msg_fontsize' => '16',
 		'login_msg_font_color' => '#000000',
-		'tagline_msg' => 'This login form is created by <a href="https://wordpress.org/plugins/admin-custom-login/" target="_blank">ACL</a> , developed by <a href="https://www.weblizar.com" target="_blank">weblizar</a>',
+		'tagline_msg' => 'Login form is designed using <a href="https://wordpress.org/plugins/admin-custom-login/" target="_blank">ACL</a> plugin by <a href="https://www.weblizar.com" target="_blank">Weblizar</a>.',
+		'user_cust_lbl' => 'Type Username or Email',
+		'pass_cust_lbl' => 'Type Password',
+		'label_username' => 'Username / Email',
+		'label_password' => 'Password',
+		'label_loginButton' => 'Log In'
 	));
-	add_option("Admin_custome_login_login", $login_page);
-	
+	add_option("Admin_custome_login_login", $login_page);	
 	$text_and_color_page= serialize(array(
 		'heading_font_color'=>'#ffffff',
 		'input_font_color'=>'#000000',
@@ -74,7 +77,7 @@ if(!isset($Version)){
 		'button_font_style'=>'Open Sans',
 		'enable_inputbox_icon'=>'yes',
 		'user_input_icon'=>'fa-user',
-		'password_input_icon'=>'fa-key'
+		'password_input_icon'=>'fa-key',		
 	));
 	add_option("Admin_custome_login_text", $text_and_color_page);
 	
@@ -107,8 +110,8 @@ if(!isset($Version)){
 		'social_vkontakte_link'			=> '',
 		'social_skype_link'				=> '',
 		'social_instagram_link'			=> 'https://instagram.com',
-		'social_telegram_link'			=> 'https://telegram.org/',
-		'social_whatsapp_link'			=> 'https://whatsapp.com/',
+		'social_telegram_link'			=> '',
+		'social_whatsapp_link'			=> '',
 	));
 	add_option("Admin_custome_login_Social", $Social_page);
 

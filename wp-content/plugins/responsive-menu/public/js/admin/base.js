@@ -115,22 +115,6 @@ jQuery(function($) {
         $(document).on('click', '.nav-tabs li a', function() {
             var tab_name = $(this).attr('href').replace('#', '');
             $('#responsive-menu-current-page').val(tab_name);
-
-            $('.guide-active').removeClass('guide-active');
-            switch(tab_name) {
-                case 'sub-menus':
-                    $('#guide-submenu-container').addClass('guide-active');
-                    break;
-                case 'menu':
-                    $('#guide-menu-container').addClass('guide-active');
-                    break;
-                case 'button':
-                    $('#guide-button-container').addClass('guide-active');
-                    break;
-                case 'container':
-                    $('#guide-container-container').addClass('guide-active');
-                    break;
-            }
         });
     /* <-- End Navigation Tabs */
 
@@ -206,4 +190,13 @@ jQuery(function($) {
         $('#sortable, .draggable').disableSelection();
     /* <-- End Menu Order Scripts */
 
+    /* --> Theme Selector Script */
+        $('#responsive-menu-menu-theme').on('changed.bs.select', function() {
+            var selected_theme_key = $(this).val();
+            var preview_image_url = THEMES_FOLDER_URL + selected_theme_key + '/preview.png';
+            var $preview_image = $('#responsive-menu-theme-preview');
+
+            $preview_image.attr('src', preview_image_url);
+        });
+    /* <-- End Theme Selector Script */
 });

@@ -93,7 +93,7 @@ function get_responsive_menu_default_options() {
         'arrow_position' => 'right',
         'submenu_arrow_width' => '40',
         'submenu_arrow_width_unit' => 'px',
-        'submenu_arrow_height' => '40',
+        'submenu_arrow_height' => '39',
         'submenu_arrow_height_unit' => 'px',
         'submenu_descriptions_on' => false,
         'accordion_animation' => 'off',
@@ -166,7 +166,7 @@ function get_responsive_menu_default_options() {
         'submenu_arrow_position' => 'right',
 
         // Sub Menus > Trigger Sizing
-        'submenu_submenu_arrow_height' => '40',
+        'submenu_submenu_arrow_height' => '39',
         'submenu_submenu_arrow_height_unit' => 'px',
         'submenu_submenu_arrow_width' => '40',
         'submenu_submenu_arrow_width_unit' => 'px',
@@ -254,6 +254,8 @@ function get_responsive_menu_default_options() {
 
         'shortcode' => 'off',
         'mobile_only' => 'off',
+        'hide_on_mobile' => 'off',
+        'hide_on_desktop' => 'off',
         'custom_walker' => null,
         'custom_css' => null,
 
@@ -327,7 +329,8 @@ function get_responsive_menu_default_options() {
         'use_slide_effect' => 'off',
         'slide_effect_back_to_text' => 'Back',
 
-        'admin_theme' => 'dark'
+        'admin_theme' => 'dark',
+        'menu_theme' => null
 
     ];
 
