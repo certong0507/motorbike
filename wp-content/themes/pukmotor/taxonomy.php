@@ -13,7 +13,10 @@
 
 get_header(); ?>
 <div class="wrap">
-    <?php the_archive_title( '<h2 class="title_font">', '</h2>' ); ?>
+    <!-- <?php the_archive_title( '<h2 class="title_font">', '</h2>' ); ?> -->
+
+    <h2> <?php $f00 = get_the_terms(get_the_ID(), 'brand')[0];
+    echo $foo; ?> </h2>
 
     <div id="taxonomy_wrapper">
         <?php if(have_posts()): ?>
@@ -22,11 +25,11 @@ get_header(); ?>
 
                     if( !get_field('condition') ):?>
 
-                    <li class=" col-lg-3 col-md-6 col-xs-12">
+                    <li class=" col-lg-4 col-md-6 col-xs-12">
                         <?php get_template_part( 'template-parts/post/content', get_post_taxonomies()[0]); ?>
                     </li>
-                <?php 
-                    endif;
+                <?php endif;
+
                 endwhile;?>
             </ul>
             <ul class="pagination"></ul>

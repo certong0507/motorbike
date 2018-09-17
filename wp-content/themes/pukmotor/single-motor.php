@@ -16,29 +16,37 @@ get_header();
 $gallery = get_field('gallery'); ?>
     <div class="wrap">
         <div class="row">
-            <div class="gallery_wrapper col-lg-6 col-md-6 col-sm-12"> 
-                <h2><?php the_title(); ?></h2>
+            <div class="col-lg-12 col-md-6 col-sm-12"> 
+                <h2 class="title_font_family"><?php the_title(); ?></h2>
+                
+                <?php if (get_field('sales')) : ?>
+                    <h3>RM <?php echo number_format_i18n(get_field('promotion_price'), 2); ?></h3>
+                    <h3 class="text_crossed">RM <?php echo get_field('price'); ?></h3>
+                <?php else : ?> 
+                    <h3>RM <?php echo number_format_i18n(get_field('price'), 2); ?></h3>
+                <?php endif; ?>
+
                 <?php if ($gallery) : ?>
-                    <ul id="lightSlider">
+                    <div class="slider slider-for">
                         <?php foreach ($gallery as $image) : ?>
-                            <li data-thumb="<?php echo wp_get_attachment_image_url($image['ID'], 'full') ?>">
+                            <div class="single_motor_slick_for" data-thumb="<?php echo wp_get_attachment_image_url($image['ID'], 'full') ?>">
                                 <?php echo wp_get_attachment_image($image['ID'], 'full'); ?>
-                            </li>
+                            </div>
                         <?php endforeach; ?>
-                    </ul>
+                    </div>
+
+                    <div class="slider slider-nav">
+                        <?php foreach ($gallery as $image) : ?>
+                            <div id="<?php echo $image['ID'] ?>" class="single_motor_slick_nav" data-thumb="<?php echo wp_get_attachment_image_url($image['ID'], 'full') ?>">
+                                <?php echo wp_get_attachment_image($image['ID'], 'thumbnail'); ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 <?php endif; ?>
             </div>
 
-            <div class="motor_description_content col-lg-6 col-md-6 col-sm-12">
+            <div class="motor_description_content col-lg-12 col-md-6 col-sm-12">
                 <div class="motor_details">
-                
-                    <?php if (get_field('sales')) : ?>
-                        <h3>RM <?php echo get_field('promotion_price'); ?></h3>
-                        <h3 class="text_crossed">RM <?php echo get_field('price'); ?></h3>
-                    <?php else : ?> 
-                        <h3>RM <?php echo get_field('price'); ?></h3>
-                    <?php endif; ?>
-
                     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                         <?php the_content(); ?>
                     <?php endwhile;
@@ -75,12 +83,12 @@ $gallery = get_field('gallery'); ?>
                             <!-- Plan's content: -->
                            Deposit <?php echo $deposit; ?>%
                            (<?php echo $rate; ?>% Per Month)                  
-                           <div>Deposit Price RM <?php echo $depositPrice; ?></div>
+                           <div>Deposit Price RM <?php echo number_format_i18n($depositPrice, 2); ?></div>
                            <?php
                                 for ($i = 2; $i <= $maxYear; $i++) {
                                     $month = $i * 12;
                                     $monthlyPaymentPrice = calculateMonthlyPayment($price, $rate, $depositPrice, $month);
-                                    echo "<div>RM " . $monthlyPaymentPrice . " X " . $month . " months (" . $i . "years)</div>";
+                                    echo "<div>RM " . number_format_i18n($monthlyPaymentPrice, 2) . " X " . $month . " months (" . $i . "years)</div>";
                                 }                           
                            ?>
 

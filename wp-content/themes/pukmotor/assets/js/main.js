@@ -21,16 +21,46 @@ $( document ).ready(function() {
         });
     });
 
-    $('#lightSlider').lightSlider({
-        mode: 'fade',
-        gallery: true,
-        loop:true,
-        slideMargin: 0,
-        thumbItem: 5,
-        prevHtml: '<img src="/motorbike/wp-content/themes/motorbike/assets/images/left-arrow.png">',
-        nextHtml: '<img src="/motorbike/wp-content/themes/motorbike/assets/images/right-arrow.png">'
-    });
-
+    $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        dots: false,
+        adaptiveHeight: false,
+        asNavFor: '.slider-nav'
+      });
+      $('.slider-nav').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        dots: false,
+        centerMode: true,
+        focusOnSelect: true,
+        nextArrow: '<i class="fa fa-arrow-right slick_right"></i>',
+        prevArrow: '<i class="fa fa-arrow-left slick_left"></i>',
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+            }
+        }, {
+            breakpoint: 640,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 4,
+           }
+        }, {
+            breakpoint: 420,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+       }
+        }]
+      });
+ 
+      
     var monkeyList = new List('taxonomy_wrapper', {
         valueNames: ['single_motor'],
         page: 12,

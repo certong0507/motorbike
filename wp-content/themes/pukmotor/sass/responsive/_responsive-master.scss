@@ -25,6 +25,13 @@
 
 
 @media (max-width: $screen-md-max) {
+    .single_motor{
+        height: auto !important;
+    }
+
+    .responsive_price{
+        display: inline-block !important;
+    }
 }
 
 @media (max-width: $screen-md-min) {

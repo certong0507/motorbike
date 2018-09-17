@@ -63,6 +63,15 @@
 	// 	echo '</div><!-- .single-featured-image-header -->';
 	// endif;
 	?>
-
 	<div class="site-content-contain">
+		<?php if(!is_page('71') && !is_page('160')){ ?>
+			<div class="breadcrumb_wrap">
+				<div class="breadcrumb wrap">
+					<?php 
+						if(function_exists('bcn_display')){
+							bcn_display();	
+						} ?>
+				</div>
+			</div>
+		<?php } ?>
 		<div id="content" class="site-content">

@@ -11,6 +11,7 @@
  */
 
 ?>
-
-<h2 class="title_font"><?php the_title();?></h2>
+<div class="content_page_title_wrap">
+    <h2 class="title_font title_font_family"><?php the_title();?></h2>
+</div>
 <?php the_content(); ?>

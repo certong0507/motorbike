@@ -5192,18 +5192,18 @@ object {
 @media print {
   .hidden-print {
     display: none !important; } }
-@font-face {
-  font-family: 'Quantico';
-  src: url("fonts/Quantico-Bold.ttf"); }
+@media (max-width: 1199px) {
+  .single_motor {
+    height: auto !important; }
+
+  .responsive_price {
+    display: inline-block !important; } }
 @font-face {
   font-family: 'Quantico';
   src: url("fonts/Quantico-Regular.ttf"); }
 @font-face {
   font-family: 'Open Sans';
   src: url("fonts/OpenSans-Light.ttf"); }
-@font-face {
-  font-family: 'Open Sans';
-  src: url("fonts/OpenSans-Regular.ttf"); }
 html {
   font-family: 'Quantico', sans-serif !important;
   -webkit-text-size-adjust: 100%;
@@ -5419,6 +5419,7 @@ h4 {
     font-size: 4rem; }
 
 .hover_show {
+  text-align: center;
   background-color: transparent;
   color: #000000;
   transition: all 0.3s ease;
@@ -5430,12 +5431,13 @@ h4 {
   transform: translateY(-50%);
   cursor: pointer; }
   .hover_show h3 {
-    font-size: 26px; }
+    font-size: 20px; }
 
 .single_motor_wrap {
-  position: relative; }
+  position: relative;
+  display: inline-block; }
   .single_motor_wrap:hover .single_motor {
-    opacity: 0.1; }
+    opacity: 0.09; }
   .single_motor_wrap:hover .hover_show {
     top: 50%;
     opacity: 1; }
@@ -5554,6 +5556,45 @@ h4 {
     color: #000000 !important; }
 
 .text_align_center {
+  text-align: center; }
+
+.responsive_price {
+  display: none;
+  width: 100%; }
+
+.single_motor_slick_for img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%; }
+
+.single_motor_slick_nav {
+  border: 1px solid #bbbbbb;
+  border-radius: 5px;
+  margin: 0px 10px;
+  padding: 3px; }
+  .single_motor_slick_nav:hover {
+    cursor: pointer; }
+
+.slick_left {
+  position: absolute;
+  left: -40px;
+  bottom: 50px;
+  z-index: 99; }
+
+.slick_right {
+  position: absolute;
+  right: -40px;
+  bottom: 50px;
+  z-index: 99; }
+
+.breadcrumb_wrap {
+  border-bottom: 1px solid #bbbbbb; }
+  .breadcrumb_wrap .breadcrumb {
+    padding-top: 2px;
+    padding-bottom: 2px; }
+
+.content_page_title_wrap {
   text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

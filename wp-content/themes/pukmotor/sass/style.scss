@@ -126,10 +126,10 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import "responsive/responsive-utilities";
 @import "responsive/responsive-master";
 
-@font-face {
-	font-family: 'Quantico';
-	src: url("fonts/Quantico-Bold.ttf");
-}
+// @font-face {
+// 	font-family: 'Quantico';
+// 	src: url("fonts/Quantico-Bold.ttf");
+// }
 
 @font-face {
 	font-family: 'Quantico';
@@ -141,10 +141,10 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	src: url("fonts/OpenSans-Light.ttf");
 }
 
-@font-face {
-	font-family: 'Open Sans';
-	src: url("fonts/OpenSans-Regular.ttf");
-}
+// @font-face {
+// 	font-family: 'Open Sans';
+// 	src: url("fonts/OpenSans-Regular.ttf");
+// }
 
 // @font-face {
 // 	font-family: 'Open Sans';
@@ -454,6 +454,7 @@ h4{
 }
 
 .hover_show{
+	text-align: center;
 	background-color: transparent;
 	color: #000000;
 	transition: all 0.3s ease;
@@ -466,16 +467,17 @@ h4{
 	cursor: pointer;
 
 	h3{
-		font-size: 26px;
+		font-size: 20px;
 	}
 }
 
 .single_motor_wrap{
 	position: relative;
+	display: inline-block;
 
 	&:hover{
 		.single_motor{
-			opacity: 0.1;
+			opacity: 0.09;
 		}
 
 		.hover_show{
@@ -637,5 +639,57 @@ h4{
 }
 
 .text_align_center{
+	text-align: center;
+}
+
+.responsive_price{
+	display: none;
+	width: 100%;
+}
+
+.single_motor_slick_for{
+	img{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+	}
+}
+
+.single_motor_slick_nav{
+	border: 1px solid #bbbbbb;
+	border-radius: 5px;
+	margin: 0px 10px;
+	padding: 3px;
+
+	&:hover{
+		cursor: pointer;
+	}
+}
+
+.slick_left{
+	position: absolute;
+	left: -40px;
+	bottom: 50px;
+    z-index: 99;
+}
+
+.slick_right{
+	position: absolute;
+	right: -40px;
+	bottom: 50px;
+    z-index: 99;
+}
+
+.breadcrumb_wrap{
+	border-bottom: 1px solid #bbbbbb;
+
+	.breadcrumb{
+		padding-top: 2px;
+		padding-bottom: 2px;
+	}
+}
+
+.content_page_title_wrap{
 	text-align: center;
 }

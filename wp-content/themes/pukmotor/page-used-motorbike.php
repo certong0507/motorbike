@@ -17,9 +17,10 @@ get_header();  ?>
     ); 
     	$used_motorbike = new wp_query( $args );
     ?>
-
-    <h2 class="title_font">Used Motorbike</h2>
-
+    <div class="content_page_title_wrap">
+        <h2 class="title_font title_font_family">Used Motorbike</h2>
+    </div>
+    
     <div id="taxonomy_wrapper">
         <?php if( $used_motorbike -> have_posts()): ?>
             <ul class="list">
