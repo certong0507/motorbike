@@ -38,9 +38,23 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 	$login_bg_repeat =$login_page['login_bg_repeat'];
 	$login_bg_position= $login_page['login_bg_position'];
 	$login_enable_shadow=$login_page['login_enable_shadow'];
+
+	if(isset($login_page['login_redirect_force'])){
+		$login_redirect_force = $login_page['login_redirect_force'];
+	}else{
+		$login_redirect_force = 'no';
+	}
+	
 	$login_shadow_color=$login_page['login_shadow_color'];
 	$login_custom_css=$login_page['login_custom_css'];
 	$login_redirect_user=$login_page['login_redirect_user'];
+
+	if(isset($login_page['login_force_redirect_url'])){
+		$login_force_redirect_url = $login_page['login_force_redirect_url'];
+	}else{
+		$login_force_redirect_url = get_home_url()."/wp-login.php";
+	}
+	
 	$log_form_above_msg=$login_page['log_form_above_msg'];
 	$login_msg_fontsize= $login_page['login_msg_fontsize'];
 	$login_msg_font_color= $login_page['login_msg_font_color'];

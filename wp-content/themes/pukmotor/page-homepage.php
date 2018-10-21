@@ -31,6 +31,20 @@ get_header();  ?>
 					wp_reset_postdata();
 					endif; ?>
 			</div>
+
+			<div class="brand_slideshow_wrap">
+				<div class="brand_logo_slick">
+					<?php 
+						$terms = get_terms( 'brand', array('hide_empty' => false,) );
+						
+						foreach($terms as $term) {
+							$term_detail = 'brand_'.$term->term_id;
+							$logoObj =  get_field('logo', $term_detail);
+						?>
+							<a href="<?php echo get_term_link($term->slug, $term->taxonomy) ?>"><img src='<?php echo $logoObj['url']; ?>' /></a>
+						<?php } ?>
+				</div>
+			</div>
 		</div>
 	</main><!-- #main -->
 </div><!-- #primary -->

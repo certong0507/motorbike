@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Admin Custom Login 
- * Version: 2.7.2
- * Description: Customize Your WordPress Login Screen Amazingly
+ * Version: 2.7.6
+ * Description: Customize Your WordPress Login Screen Amazingly - Add Own Logo, Add Social Profiles, Login Form Positions, Background Image Slide Show
  * Author: Weblizar
  * Author URI: https://weblizar.com/plugins/
  * Plugin URI: https://weblizar.com/plugins/
@@ -46,10 +46,10 @@ function ACL_WeblizarDoInstallation() {
 
 // Add settings link on plugin page
 function acl_links($links) {
-    $acl_pro_link = '<a href="https://weblizar.com/plugins/admin-custom-login-pro/" target="_blank">Try Pro</a>';
-    array_unshift($links, $acl_pro_link);   
+    $acl_pro_link = '<a style="font-weight:700; color:#e35400" href="https://weblizar.com/plugins/admin-custom-login-pro/" target="_blank">Go Pro</a>';
     $acl_settings_link = '<a href="admin.php?page=admin_custom_login">Settings</a>'; 
-    array_unshift($links, $acl_settings_link);  
+    array_unshift($links, $acl_settings_link);
+    array_unshift($links, $acl_pro_link);     
     return $links; 
 } 
 $acl_plugin_name = plugin_basename(__FILE__); 

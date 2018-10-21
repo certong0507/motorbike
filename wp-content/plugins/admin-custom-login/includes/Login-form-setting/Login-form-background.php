@@ -160,6 +160,8 @@ jQuery(document).ready(function() {
 	jQuery("#login_bg_color_overlay").val('<?php if($login_bg_effect != ""){echo $login_bg_effect;}else {echo "";}?>');
 	//login border style 
 	jQuery("#login_border_style").val('<?php if($login_border_style != ""){echo $login_border_style;}else {echo "";}?>');
+
+	jQuery("#login_redirect_force").val('<?php if($login_redirect_force != ""){echo $login_redirect_force;}else {echo "";}?>');	
 	//login Background Repeat 
 	jQuery("#login_bg_repeat").val('<?php if($login_bg_repeat != ""){echo $login_bg_repeat;}else {echo "";}?>');
 	//login Background Position 
@@ -652,6 +654,32 @@ function loginbgchange() {
 		<div class="panel-body">
 			<table class="form-table">
 				<tr>
+					<th scope="row" ><?php _e('Forcefully Redirect', WEBLIZAR_ACL)?></th>
+					<td></td>
+				</tr>
+				<tr class="radio-span" style="border-bottom:none;">
+					<td>
+						<select id="login_redirect_force" class="standard-dropdown" name="login_redirect_force">
+							<option value="yes" ><?php _e('Yes', WEBLIZAR_ACL)?> </option>
+							<option value="no" ><?php _e('No', WEBLIZAR_ACL)?> </option>
+							
+						</select>
+					</td>
+				</tr>
+				<tr class="radio-span" style="border-bottom:none;">
+					<td>
+						<input type="text"  class="login_force_redirect_url" id="login_force_redirect_url" name="login_force_redirect_url" placeholder="<?php _e('Redirect Force URL', WEBLIZAR_ACL)?>" size="56" value="<?php echo $login_force_redirect_url; ?>"><br>
+						<span style="color:#ef4238"><?php _e('Enter the URL to user forcefully redirect to admin panel or another when if hit the site url.', WEBLIZAR_ACL)?></span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="panel panel-primary panel-default content-panel">
+		<div class="panel-body">
+			<table class="form-table">
+				<tr>
 					<th scope="row" ><?php _e('Redirect Users After Login (Not Work For Admin)', WEBLIZAR_ACL)?></th>
 					<td></td>
 				</tr>
@@ -839,12 +867,14 @@ function Custom_login_login(Action, id){
 		var login_form_width= jQuery("#login-width-text-box").val();
 		var login_form_radius= jQuery("#login-Radius-text-box").val();
 		var login_border_style = jQuery( "#login_border_style option:selected" ).val();
+		var login_redirect_force = jQuery( "#login_redirect_force option:selected" ).val();
 		var login_border_thikness = jQuery("#login-thickness-text-box").val();
 		var login_border_color = jQuery("#login-Border-color").val();
 		var login_bg_repeat = jQuery( "#login_bg_repeat option:selected" ).val();
 		var login_bg_position = jQuery( "#login_bg_position option:selected" ).val();
 		var login_custom_css = jQuery( "#login_custom_css").val();
 		var login_redirect_user = jQuery( "#login_redirect_user").val();
+	    var login_force_redirect_url = jQuery( "#login_force_redirect_url").val();
 		var log_form_above_msg = jQuery( "#log_form_above_msg").val();
 		var login_msg_fontsize = jQuery("#login-msg-text-size").val();
 		var login_msg_font_color = jQuery("#login-msg-font-color").val();
@@ -863,7 +893,7 @@ function Custom_login_login(Action, id){
 		}
 		var login_shadow_color = jQuery("#login_shadow_color").val();		
 
-		var PostData = "Action=" + Action + "&login_form_position=" + login_form_position + "&Login_bg_value=" + Login_bg_value + "&login_background_color=" + login_background_color + "&login_bg_color_overlay=" + login_bg_color_overlay + "&login_bg_image=" + login_bg_image + "&login_form_opacity=" + login_form_opacity  + "&login_form_width=" + login_form_width + "&login_form_radius=" + login_form_radius + "&login_border_style=" + login_border_style + "&login_border_thikness=" + login_border_thikness + "&login_border_color=" + login_border_color + "&login_bg_repeat=" + login_bg_repeat + "&login_bg_position=" + login_bg_position + "&login_enable_shadow=" + login_enable_shadow + "&login_shadow_color=" + login_shadow_color + "&login_custom_css=" + login_custom_css + "&login_redirect_user=" + login_redirect_user +"&login_form_left=" + login_form_left + "&log_form_above_msg=" + log_form_above_msg + "&login_msg_font_color=" + login_msg_font_color + "&login_msg_fontsize=" + login_msg_fontsize  +  "&login_form_top=" + login_form_top + "&login_form_float=" + login_form_float + "&tagline_msg=" + tagline_msg + "&user_cust_lbl=" + user_cust_lbl + "&pass_cust_lbl=" + pass_cust_lbl + '&label_username=' + label_username + '&label_password=' + label_password + '&label_loginButton=' + label_loginButton;
+		var PostData = "Action=" + Action + "&login_form_position=" + login_form_position + "&Login_bg_value=" + Login_bg_value + "&login_background_color=" + login_background_color + "&login_bg_color_overlay=" + login_bg_color_overlay + "&login_bg_image=" + login_bg_image + "&login_form_opacity=" + login_form_opacity  + "&login_form_width=" + login_form_width + "&login_form_radius=" + login_form_radius + "&login_border_style=" + login_border_style + "&login_redirect_force=" + login_redirect_force +"&login_border_thikness=" + login_border_thikness + "&login_border_color=" + login_border_color + "&login_bg_repeat=" + login_bg_repeat + "&login_bg_position=" + login_bg_position + "&login_enable_shadow=" + login_enable_shadow + "&login_shadow_color=" + login_shadow_color + "&login_custom_css=" + login_custom_css + "&login_redirect_user=" + login_redirect_user + "&login_force_redirect_url=" + login_force_redirect_url +"&login_form_left=" + login_form_left + "&log_form_above_msg=" + log_form_above_msg + "&login_msg_font_color=" + login_msg_font_color + "&login_msg_fontsize=" + login_msg_fontsize  +  "&login_form_top=" + login_form_top + "&login_form_float=" + login_form_float + "&tagline_msg=" + tagline_msg + "&user_cust_lbl=" + user_cust_lbl + "&pass_cust_lbl=" + pass_cust_lbl + '&label_username=' + label_username + '&label_password=' + label_password + '&label_loginButton=' + label_loginButton;
 		jQuery.ajax({
 			dataType : 'html',
 			type: 'POST',
@@ -946,6 +976,8 @@ function Custom_login_login(Action, id){
 				 jQuery("#login_bg_color_overlay").val('pattern-1');
 				//login border style 
 				 jQuery("#login_border_style").val('solid');
+
+				 jQuery("#login_redirect_force").val('no');
 				//login Background Repeat 
 				 jQuery("#login_bg_repeat").val('repeat');	
 				//login Background Position 
@@ -962,6 +994,8 @@ function Custom_login_login(Action, id){
 					jQuery("#login_custom_css").val(''); 
 					//login Redirect  User
 					jQuery("#login_redirect_user").val(''); 
+
+					jQuery("#login_force_redirect_url").val('<?php echo get_home_url()."/wp-login.php"; ?>');
 					// Username label text
 					jQuery("#user_cust_lbl").val('Type Username or Email');
 					// Password label text
@@ -1022,6 +1056,7 @@ if(isset($_POST['Action'])){
 		$login_form_width 	= sanitize_option('login_form_width', $_POST['login_form_width']);
 		$login_form_radius 	= sanitize_option('login_form_radius', $_POST['login_form_radius']);
 		$login_border_style 	= sanitize_option('login_border_style', $_POST['login_border_style']);
+		$login_redirect_force 	= sanitize_option('login_redirect_force', $_POST['login_redirect_force']);
 		$login_border_thikness 	= sanitize_option('login_border_thikness', $_POST['login_border_thikness']);
 		$login_border_color 	= sanitize_option('login_border_color', $_POST['login_border_color']);
 		$login_bg_repeat 	= sanitize_option('login_bg_repeat', $_POST['login_bg_repeat']);
@@ -1030,6 +1065,7 @@ if(isset($_POST['Action'])){
 		$login_shadow_color 	= sanitize_option('login_shadow_color', $_POST['login_shadow_color']);
 		$login_custom_css 	= sanitize_option('login_custom_css', $_POST['login_custom_css']);
 		$login_redirect_user 	= sanitize_option('login_redirect_user', $_POST['login_redirect_user']);
+		$login_force_redirect_url 	= sanitize_option('login_force_redirect_url', $_POST['login_force_redirect_url']);
 		$log_form_above_msg 	= sanitize_option('log_form_above_msg', $_POST['log_form_above_msg']);
 		$tagline_msg 			= sanitize_option('tagline_msg', $_POST['tagline_msg']);
 		$login_msg_fontsize 	= sanitize_option('login_msg_fontsize', $_POST['login_msg_fontsize']);
@@ -1055,6 +1091,7 @@ if(isset($_POST['Action'])){
 			'login_form_width' => $login_form_width,
 			'login_form_radius' => $login_form_radius,
 			'login_border_style' => $login_border_style,
+			'login_redirect_force'=> $login_redirect_force,
 			'login_border_thikness' => $login_border_thikness,
 			'login_border_color' => $login_border_color,
 			'login_bg_repeat' => $login_bg_repeat,
@@ -1063,6 +1100,7 @@ if(isset($_POST['Action'])){
 			'login_shadow_color' => $login_shadow_color,
 			'login_custom_css' => $login_custom_css,
 			'login_redirect_user' => $login_redirect_user,
+			'login_force_redirect_url' => $login_force_redirect_url,
 			'log_form_above_msg' => $log_form_above_msg,
 			'tagline_msg' => $tagline_msg,
 			'login_msg_fontsize' => $login_msg_fontsize,
@@ -1090,6 +1128,7 @@ if(isset($_POST['Action'])){
 			'login_form_width' => '358',
 			'login_form_radius' => '10',
 			'login_border_style' => 'solid',
+			'login_redirect_force' => 'no',
 			'login_border_thikness' => '4',
 			'login_border_color' => '#0069A0',
 			'login_bg_repeat' => 'repeat',
@@ -1098,6 +1137,7 @@ if(isset($_POST['Action'])){
 			'login_shadow_color' => '#C8C8C8',
 			'login_custom_css' => '',
 			'login_redirect_user' => '',
+			'login_force_redirect_url'=> get_home_url()."/wp-login.php",
 			'log_form_above_msg' => '',
 			'tagline_msg' => 'This login form is created by <a href="https://wordpress.org/plugins/admin-custom-login/" target="_blank">ACL</a> , developed by <a href="https://www.weblizar.com" target="_blank">weblizar</a>',
 			'login_msg_fontsize' => '16',

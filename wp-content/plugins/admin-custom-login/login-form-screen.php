@@ -307,7 +307,7 @@ function acl_er_login_logo() {
 		if(isset($login_page['log_form_above_msg'])){
 			$log_form_above_msg = $login_page['log_form_above_msg'];
 			if($log_form_above_msg !=""){ ?> 
-				<p class='login-msg-above'><?php echo $log_form_above_msg; ?></p>
+				<p class='login-msg-above'><?php echo html_entity_decode(stripslashes($log_form_above_msg)); ?></p>
 			<?php
 			}
 		}	

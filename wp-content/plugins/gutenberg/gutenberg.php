@@ -3,15 +3,15 @@
  * Plugin Name: Gutenberg
  * Plugin URI: https://github.com/WordPress/gutenberg
  * Description: Printing since 1440. This is the development plugin for the new block editor in core.
- * Version: 3.8.0
+ * Version: 4.0.0
  * Author: Gutenberg Team
  *
  * @package gutenberg
  */
 
 ### BEGIN AUTO-GENERATED DEFINES
-define( 'GUTENBERG_VERSION', '3.8.0' );
-define( 'GUTENBERG_GIT_COMMIT', 'a22963998c9f26439630d46a18303b6ae76ca694' );
+define( 'GUTENBERG_VERSION', '4.0.0' );
+define( 'GUTENBERG_GIT_COMMIT', '7047b02a73a3fbb95a990ed7417726a91485c15d' );
 ### END AUTO-GENERATED DEFINES
 
 gutenberg_pre_init();
@@ -258,9 +258,24 @@ add_action( 'admin_init', 'gutenberg_add_edit_link_filters' );
  * @return array          Updated post actions.
  */
 function gutenberg_add_edit_link( $actions, $post ) {
+	// Build the classic edit action. See also: WP_Posts_List_Table::handle_row_actions().
+	$title = _draft_or_post_title( $post->ID );
+
 	if ( 'wp_block' === $post->post_type ) {
 		unset( $actions['edit'] );
 		unset( $actions['inline hide-if-no-js'] );
+		$actions['export'] = sprintf(
+			'<button type="button" class="wp-list-reusable-blocks__export button-link" data-id="%s" aria-label="%s">%s</button>',
+			$post->ID,
+			esc_attr(
+				sprintf(
+					/* translators: %s: post title */
+					__( 'Export &#8220;%s&#8221; as JSON', 'gutenberg' ),
+					$title
+				)
+			),
+			__( 'Export as JSON', 'gutenberg' )
+		);
 		return $actions;
 	}
 
@@ -271,8 +286,6 @@ function gutenberg_add_edit_link( $actions, $post ) {
 	$edit_url = get_edit_post_link( $post->ID, 'raw' );
 	$edit_url = add_query_arg( 'classic-editor', '', $edit_url );
 
-	// Build the classic edit action. See also: WP_Posts_List_Table::handle_row_actions().
-	$title       = _draft_or_post_title( $post->ID );
 	$edit_action = array(
 		'classic' => sprintf(
 			'<a href="%s" aria-label="%s">%s</a>',
@@ -469,6 +482,27 @@ add_action( 'admin_print_scripts-edit.php', 'gutenberg_replace_default_add_new_b
  * @return string The $classes string, with gutenberg-editor-page appended.
  */
 function gutenberg_add_admin_body_class( $classes ) {
-	// Default to is-fullscreen-mode to avoid jumps in the UI.
-	return "$classes gutenberg-editor-page is-fullscreen-mode";
+	if ( current_theme_supports( 'editor-styles' ) && current_theme_supports( 'dark-editor-style' ) ) {
+		return "$classes gutenberg-editor-page is-fullscreen-mode is-dark-theme";
+	} else {
+		// Default to is-fullscreen-mode to avoid jumps in the UI.
+		return "$classes gutenberg-editor-page is-fullscreen-mode";
+	}
 }
+
+/**
+ * Adds attributes to kses allowed tags that aren't in the default list
+ * and that Gutenberg needs to save blocks such as the Gallery block.
+ *
+ * @param array $tags Allowed HTML.
+ * @return array (Maybe) modified allowed HTML.
+ */
+function gutenberg_kses_allowedtags( $tags ) {
+	if ( isset( $tags['img'] ) ) {
+		$tags['img']['data-link'] = true;
+		$tags['img']['data-id']   = true;
+	}
+	return $tags;
+}
+
+add_filter( 'wp_kses_allowed_html', 'gutenberg_kses_allowedtags', 10, 2 );

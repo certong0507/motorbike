@@ -1,4 +1,23 @@
 <?php
+$login_page = unserialize(get_option('Admin_custome_login_login'));
+if(isset($login_page['login_redirect_force'])){
+	$login_redirect_force = $login_page['login_redirect_force']; 
+}else{
+	$login_redirect_force = "no";
+}
+if($login_redirect_force=="yes"){
+		add_action( 'template_redirect', function(){
+	    // no non-authenticated users allowed
+	    if( ! is_user_logged_in() )
+	    {
+	        $login_page = unserialize(get_option('Admin_custome_login_login'));
+	        wp_redirect( $login_page['login_force_redirect_url'], 302 );
+	        exit();
+	    }
+	});
+}
+
+
 $g_page = unserialize(get_option('Admin_custome_login_gcaptcha'));
 if(isset($g_page['login_enable_gcaptcha'])){
 	$login_enable_gcaptcha = $g_page['login_enable_gcaptcha'];
@@ -196,20 +215,20 @@ function acl_footer_func() {
 		<?php }?>
 
 		<?php
-		$g_page = unserialize(get_option('Admin_custome_login_gcaptcha'));
-		$site_key = $g_page['site_key'];
-		$secret_key = $g_page['secret_key'];
+			$g_page = unserialize(get_option('Admin_custome_login_gcaptcha'));
+			$site_key = $g_page['site_key'];
+			$secret_key = $g_page['secret_key'];
 		?>
 
 		<?php if ($top_page['top_bg_type'] == "slider-background"){ ?>
 		 jQuery('#screen').prepend('<ul class="cb-slideshow"> <li><span>Image 01</span></li> <li><span>Image 02</span></li> <li><span>Image 03</span></li>  <li><span>Image 04</span></li>  <li><span>Image 05</span></li> <li><span>Image 06</span></li></ul>')
 		<?php } ?>
 
-		//enable Social Icon In inner login form 
+		<!--enable Social Icon In inner login form--> 
 		<?php if($Social_page['enable_social_icon'] == "inner" || $Social_page['enable_social_icon'] == "both") {?>
 		jQuery( ".forgetmenot, #lostpasswordform" ).append('<div class="acl-social-inner" style="padding-top:16px"><div class="acl-social-text" style="color:<?php echo $heading_font_color; ?>; font-size:<?php echo $heading_font_size;?>px; "><?php _e('Find Us On Social Media',WEBLIZAR_ACL); ?></div><div style="padding-top:5px"><?php if($Social_page['social_twitter_link']!=''){ ?><a href="<?php echo $Social_page['social_twitter_link'];?>" class="icon-button twitter"><i class="fab fa-twitter"></i><span></span></a><?php } if($Social_page['social_facebook_link']!=''){ ?> <a href="<?php echo $Social_page['social_facebook_link'];?>" class="icon-button facebook"><i class="fab fa-facebook-f"></i><span></span></a> <?php } if($Social_page['social_google_plus_link']!=''){ ?> <a href="<?php echo $Social_page['social_google_plus_link'];?>" class="icon-button google-plus"><i class="fab fa-google-plus-g"></i><span></span></a><?php } if($Social_page['social_linkedin_link']!=''){ ?> <a href="<?php echo $Social_page['social_linkedin_link'];?>" class="icon-button linkedin"> <i class="fab fa-linkedin-in"> </i> <span></span> </a> <?php } if($Social_page['social_pinterest_link']!=''){ ?><a href="<?php echo $Social_page['social_pinterest_link'];?>" class="icon-button pinterest"><i class="fab fa-pinteres-p"></i><span></span></a><?php } if($Social_page['social_digg_link']!=''){ ?><a href="<?php echo $Social_page['social_digg_link'];?>" class="icon-button digg"><i class="fab fa-digg"></i><span></span></a><?php } if($Social_page['social_youtube_link']!=''){ ?><a href="<?php echo $Social_page['social_youtube_link'];?>" class="icon-button youtube"><i class="fab fa-youtube-square"></i><span></span></a><?php } if($Social_page['social_flickr_link']!=''){ ?><a href="<?php echo $Social_page['social_flickr_link'];?>" class="icon-button flickr"><i class="fab fa-flickr"></i><span></span></a><?php } if($Social_page['social_tumblr_link']!=''){ ?><a href="<?php echo $Social_page['social_tumblr_link'];?>" class="icon-button tumblr"><i class="fab fa-tumblr"></i><span></span></a><?php } if($Social_page['social_skype_link']!=''){ ?><a href="<?php echo $Social_page['social_skype_link'];?>" class="icon-button skype"><i class="fab fa-skype"></i><span></span></a><?php } if($Social_page['social_instagram_link']!=''){ ?><a href="<?php echo $Social_page['social_instagram_link'];?>" class="icon-button instagram"><i class="fab fa-instagram"></i><span></span></a><?php } if($Social_page['social_telegram_link']!=''){ ?><a href="<?php echo $Social_page['social_telegram_link'];?>" class="icon-button telegram"><i class="fab fa-telegram-plane"></i><span></span></a><?php }if($Social_page['social_whatsapp_link']!=''){ ?><a href="<?php echo $Social_page['social_whatsapp_link'];?>" class="icon-button whatsapp"><i class="fab fa-whatsapp"></i><span></span></a><?php } ?><div></div>' );
 		<?php } ?>
-		//enable Social Icon In outer login form 
+		<!--enable Social Icon In outer login form--> 
 		<?php if($Social_page['enable_social_icon'] == "outer" || $Social_page['enable_social_icon'] == "both") {?>
 		jQuery( "#backtoblog" ).append('<div class="divsocial"><?php if($Social_page['social_twitter_link']!=''){?> <a href="<?php echo $Social_page['social_twitter_link']; ?>" class="icon-button twitter"><i class="fab fa-twitter"></i><span></span></a><?php } if($Social_page['social_facebook_link']!=''){?><a href="<?php echo $Social_page['social_facebook_link']; ?>" class="icon-button facebook"><i class="fab fa-facebook-f"></i><span></span></a> <?php } if($Social_page['social_google_plus_link']!=''){?><a href="<?php echo $Social_page['social_google_plus_link']; ?>" class="icon-button google-plus"><i class="fab fa-google-plus-g"></i><span></span></a><?php } if($Social_page['social_linkedin_link']!=''){?><a href="<?php echo $Social_page['social_linkedin_link']; ?>" class="icon-button linkedin"><i class="fab fa-linkedin-in"></i><span></span></a><?php } if($Social_page['social_pinterest_link']!=''){?><a href="<?php echo $Social_page['social_pinterest_link']; ?>" class="icon-button pinterest"><i class="fab fa-pinterest-p"></i><span></span></a><?php } if($Social_page['social_digg_link']!=''){?> <a href="<?php echo $Social_page['social_digg_link']; ?>" class="icon-button digg"><i class="fab fa-digg"></i><span></span></a><?php } if($Social_page['social_youtube_link']!=''){?><a href="<?php echo $Social_page['social_youtube_link']; ?>" class="icon-button youtube"><i class="fab fa-youtube-square"></i><span></span></a><?php } if($Social_page['social_flickr_link']!=''){?><a href="<?php echo $Social_page['social_flickr_link']; ?>" class="icon-button flickr"><i class="fab fa-flickr"></i><span></span></a><?php } if($Social_page['social_tumblr_link']!=''){?><a href="<?php echo $Social_page['social_tumblr_link']; ?>" class="icon-button tumblr"><i class="fab fa-tumblr"></i><span></span></a><?php } if($Social_page['social_skype_link']!=''){?><a href="<?php echo $Social_page['social_skype_link']; ?>" class="icon-button skype"><i class="fab fa-skype"></i><span></span></a><?php } if($Social_page['social_instagram_link']!=''){?><a href="<?php echo $Social_page['social_instagram_link']; ?>" class="icon-button instagram"><i class="fab fa-instagram"></i><span></span></a><?php }if($Social_page['social_telegram_link']!=''){ ?><a href="<?php echo $Social_page['social_telegram_link'];?>" class="icon-button telegram"><i class="fab fa-telegram-plane"></i><span></span></a><?php }if($Social_page['social_whatsapp_link']!=''){ ?><a href="<?php echo $Social_page['social_whatsapp_link'];?>" class="icon-button whatsapp"><i class="fab fa-whatsapp"></i><span></span></a><?php } ?></div>');
 		<?php } 
@@ -285,6 +304,8 @@ function acl_export_settings() {
 	$login_enable_shadow = $login_page['login_enable_shadow'];
 	$login_shadow_color = $login_page['login_shadow_color'];
 	$log_form_above_msg = $login_page['log_form_above_msg'];
+	$login_redirect_force = $login_page['login_redirect_force'];
+	$login_force_redirect_url = $login_page['login_force_redirect_url'];
 	$login_msg_fontsize = $login_page['login_msg_fontsize'];
 	$login_msg_font_color = $login_page['login_msg_font_color'];
 	$tagline_msg = $login_page['tagline_msg'];
@@ -397,6 +418,8 @@ function acl_export_settings() {
 		'login_enable_shadow' 		=> $login_enable_shadow,
 		'login_shadow_color' 		=> $login_shadow_color,
 		'log_form_above_msg' 		=> $log_form_above_msg,
+		'login_redirect_force' 		=> $login_redirect_force,
+		'login_force_redirect_url' 	=> $login_force_redirect_url,
 		'login_msg_fontsize' 		=> $login_msg_fontsize,
 		'login_msg_font_color' 		=> $login_msg_font_color,
 		'tagline_msg' 				=> $tagline_msg,
@@ -543,6 +566,8 @@ function acl_import_settings() {
 	$login_enable_shadow 	= $ACL_Settings['login_enable_shadow'];
 	$login_shadow_color 	= $ACL_Settings['login_shadow_color'];
 	$log_form_above_msg 	= $ACL_Settings['log_form_above_msg'];
+	$login_redirect_force 	= $ACL_Settings['login_redirect_force'];
+	$login_force_redirect_url 	= $ACL_Settings['login_force_redirect_url'];
 	$login_msg_fontsize 	= $ACL_Settings['login_msg_fontsize'];
 	$login_msg_font_color 	= $ACL_Settings['login_msg_font_color'];
 	$tagline_msg 			= $ACL_Settings['tagline_msg'];
@@ -746,6 +771,8 @@ function acl_import_settings() {
 		'login_enable_shadow' 		=> $login_enable_shadow,
 		'login_shadow_color' 		=> $login_shadow_color,
 		'log_form_above_msg' 		=> $log_form_above_msg,
+		'login_redirect_force' 		=> $login_redirect_force,
+		'login_redirect_user' 		=> $login_redirect_user,
 		'login_msg_fontsize' 		=> $login_msg_fontsize,
 		'login_msg_font_color' 		=> $login_msg_font_color,
 		'tagline_msg' 				=> $tagline_msg,
