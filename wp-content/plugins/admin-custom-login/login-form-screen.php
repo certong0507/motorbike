@@ -301,17 +301,17 @@ function acl_er_login_logo() {
 	 </style>
 	<?php	
 	// Message Above Login Form
-	add_filter('login_message','message_above_login_form');
-	function message_above_login_form(){
+	function acl_login_message( $message ) {
 		$login_page = unserialize(get_option('Admin_custome_login_login'));
-		if(isset($login_page['log_form_above_msg'])){
-			$log_form_above_msg = $login_page['log_form_above_msg'];
-			if($log_form_above_msg !=""){ ?> 
-				<p class='login-msg-above'><?php echo html_entity_decode(stripslashes($log_form_above_msg)); ?></p>
-			<?php
-			}
-		}	
+	    if (!empty($login_page['log_form_above_msg']) ){
+	    	  $log_form_above_msg = $login_page['log_form_above_msg'];
+	   		  return "<p class='login-msg-above'>".html_entity_decode(stripslashes($log_form_above_msg))."</p>";
+	    } else {
+	       return $message;
+	    }
 	}
+	add_filter( 'login_message', 'acl_login_message' );
+
 }
 $dashboard_page = unserialize(get_option('Admin_custome_login_dashboard'));
 $dashboard_status = $dashboard_page['dashboard_status'];

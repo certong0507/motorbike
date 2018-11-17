@@ -13,7 +13,7 @@ get_header();  ?>
 <div class="wrap">
     <?php $args = array(
     	'post_type' => 'motor',
-    	'posts_per_page' => 5
+    	'posts_per_page' => -1
     ); 
     	$used_motorbike = new wp_query( $args );
     ?>
@@ -34,7 +34,8 @@ get_header();  ?>
                     </li>
                 <?php 
                     endif;
-                endwhile;?>
+                endwhile;
+                wp_reset_postdata(); ?>
             </ul>
             <ul class="pagination"></ul>
         <?php endif;?>

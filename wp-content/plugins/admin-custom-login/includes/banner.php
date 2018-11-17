@@ -10,29 +10,29 @@ $acl_bg_imgpath =  WEBLIZAR_NALF_PLUGIN_URL."images/bg.jpg";
 	<h2>  Admin Custom Login Pro </h2>
 		<img class="wp-img-responsive" src="<?php echo $acl_imgpath; ?>" alt="img">
 	</div>
-		<div class="wb-col-md-6 wb-col-sm-12 wb_banner_featurs-list">
+		<div class="wb-col-md-6 wb-col-sm-12 wb_banner_featurs-list"><?php _e('', WEBLIZAR_ACL)?>
 			<span><h2>Admin Custom Login Pro Features</h2></span>
 			<ul>
-				<li> Max Login Retry</li>
-				<li> Login With Access Token</li>
-				<li> Freeze Login Form On Brute Force Attack</li>
-				<li> Unfreeze Login Form By Admin</li>
-				<li> Social Media Login</li>
-				<li> Login Restriction By User Roles</li>					
-				<li> Ban User(s) Login Access</li>
-				<li> Max User Access Management</li>
-				<li> Restrict Unauthorized IP</li>
-				<li> Import Export Settings</li>
-				<li> Login Form Logo</li>
-				<li> Redirect Users After Login</li>
-				<li> Google reCpatcha</li>
+				<li> <?php _e('Max Login Retry', WEBLIZAR_ACL)?></li>
+				<li> <?php _e('Login With Access Token', WEBLIZAR_ACL)?></li>
+				<li> <?php _e('Freeze Login Form On Brute Force Attack', WEBLIZAR_ACL)?></li>
+				<li> <?php _e('Unfreeze Login Form By Admin', WEBLIZAR_ACL)?></li>
+				<li> <?php _e('Social Media Login', WEBLIZAR_ACL)?></li>
+				<li> <?php _e('Login Restriction By User Roles', WEBLIZAR_ACL)?></li>					
+				<li> <?php _e('Ban User', WEBLIZAR_ACL)?>(s) <?php _e('Login Access', WEBLIZAR_ACL)?></li>
+				<li> <?php _e('Max User Access Management', WEBLIZAR_ACL)?></li>
+				<li> <?php _e('Restrict Unauthorized IP', WEBLIZAR_ACL)?></li>
+				<li> <?php _e('Import Export Settings', WEBLIZAR_ACL)?></li>
+				<li> <?php _e('Login Form Logo', WEBLIZAR_ACL)?></li>
+				<li> <?php _e('Redirect Users After Login', WEBLIZAR_ACL)?></li>
+				<li> <?php _e('Google reCpatcha', WEBLIZAR_ACL)?></li>
 				
 			</ul>
 		<div class="wp_btn-grup">
 			<a class="wb_button-primary"  href="http://demo.weblizar.com/admin-custom-login-pro/wp-login.php" target="_blank">View Demo</a>
 			<a class="wb_button-primary" href="https://weblizar.com/plugins/admin-custom-login-pro/" target="_blank">Buy Now $25</a>
 		</div>
-		<div class="plugin_vrsion"> <span> <b> 5.4 </b> Version  </span> </div>
+		<div class="plugin_vrsion"> <span> <b> 5.7 </b> Version  </span> </div>
 		</div>
 </div>
 </div>

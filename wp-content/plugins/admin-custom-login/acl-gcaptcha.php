@@ -37,7 +37,8 @@ class ACL_gcaptcha_Login_Form {
 		}
 		?>
 		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-		<div class="g-recaptcha" data-theme="<?php echo $acl_gcaptcha_theme; ?>" data-sitekey="<?php echo $this->public_key; ?>" style="margin-bottom:20px;"></div>
+		<div class="g-recaptcha" data-theme="<?php echo $acl_gcaptcha_theme; ?>" data-sitekey="<?php echo $this->public_key; ?>" 
+			style="margin-bottom:20px;"></div>
 		<noscript>
 			<div>
 				<div style="width: 302px; height: 422px; position: relative;">
