@@ -7,9 +7,6 @@
                 <?php $term_object = get_the_terms(get_the_ID(), 'brand')[0];
                 $brand_logo_object = get_field('logo', 'brand' . '_' . $term_object->term_id); ?>
 
-                <!-- Hide brand's logo -->
-                <!-- <img src="<?php echo $brand_logo_object['url'] ?>" alt=""> -->
-
                 <h3 class="title_font_family"><?php the_title(); ?></h3>
 
                 <?php if (get_field('sales')) : ?>
@@ -18,14 +15,6 @@
                 <?php else : ?> 
                     <p>RM <?php echo number_format_i18n(get_field('display_price'), 2); ?></p>
                 <?php endif; ?>
-                <div class="responsive_price">
-                    <?php if (get_field('sales')) : ?>
-                        <p>RM <?php echo number_format_i18n(get_field('promotion_price'), 2); ?></p>
-                        <p class="text_crossed">RM <?php echo number_format_i18n(get_field('display_price'), 2); ?></p>
-                    <?php else : ?> 
-                        <p>RM <?php echo number_format_i18n(get_field('display_price'), 2); ?></p>
-                    <?php endif; ?>
-                </div>
             </div>
 
             <div>
@@ -47,6 +36,7 @@
 
         <div class="hover_show"> 
             <a href="<?php the_permalink(); ?>">
+                <img style="width: 50%;" src="<?php echo $brand_logo_object['url'] ?>" alt="">
                 <h3 class="title_font_family"><?php the_title(); ?></h3>
 
                 <?php if (get_field('sales')) : ?>
