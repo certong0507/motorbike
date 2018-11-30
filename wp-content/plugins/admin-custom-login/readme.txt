@@ -4,7 +4,7 @@ Donate link: https://www.weblizar.com/
 Tags: custom login page, custom admin login, custom login, customize wordpress login page, design wordpress login
 Requires at least: 4.0
 Tested up to: 4.9.8
-Stable tag: 2.7.7
+Stable tag: 2.7.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -157,6 +157,10 @@ If you have any question contact us at here: [Plugin Support Forum ](http://word
 == Changelog ==
 
 For more information, see [Weblizar](http://www.weblizar.com/)
+
+= 2.7.8 =
+* Minor issue fixed
+* Some premium plugin text added
 
 = 2.7.7 =
 * Bug Fixed: ACL Login Message syntax not proper.

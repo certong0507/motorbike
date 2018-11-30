@@ -5199,18 +5199,18 @@ object {
   .responsive_price {
     display: inline-block !important; } }
 @font-face {
-  font-family: 'Quantico';
+  font-family: "Quantico";
   src: url("fonts/Quantico-Regular.ttf"); }
 @font-face {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   src: url("fonts/OpenSans-Light.ttf"); }
 html {
-  font-family: 'Quantico', sans-serif !important;
+  font-family: "Quantico", sans-serif !important;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
 
 samp {
-  font-family: 'Quantico', monospace, monospace !important; }
+  font-family: "Quantico", monospace, monospace !important; }
 
 body,
 button,
@@ -5218,13 +5218,16 @@ input,
 select,
 span,
 textarea {
-  font-family: 'Open Sans', sans-serif !important; }
+  font-family: "Open Sans", sans-serif !important; }
 
 pre {
-  font-family: 'Quantico', monospace !important; }
+  font-family: "Quantico", monospace !important; }
 
-code, kbd, tt, var {
-  font-family: 'Quantico', monospace !important; }
+code,
+kbd,
+tt,
+var {
+  font-family: "Quantico", monospace !important; }
 
 a {
   text-decoration: none;
@@ -5256,7 +5259,7 @@ h4 {
   font-weight: 300; }
 
 .title_font_family {
-  font-family: 'Quantico', monospace !important; }
+  font-family: "Quantico", monospace !important; }
 
 .title_font {
   letter-spacing: 0.14em;
@@ -5445,7 +5448,7 @@ h4 {
 .single_motor_title_brand {
   margin-bottom: auto; }
   .single_motor_title_brand img {
-    width: 30%; }
+    width: 45%; }
 
 .single_motor {
   display: flex;
@@ -5454,7 +5457,7 @@ h4 {
   padding: 10px 10px 20px 10px;
   text-align: center;
   opacity: 1;
-  transition: opacity .3s; }
+  transition: opacity 0.3s; }
   .single_motor .single_motor_image_wrapper {
     margin-bottom: 20px; }
 
@@ -5505,7 +5508,7 @@ h4 {
   text-decoration: line-through; }
 
 .sales_tag {
-  width: 50%;
+  width: 35%;
   position: absolute;
   left: 10px;
   top: 5px; }
@@ -5524,7 +5527,7 @@ h4 {
   .accordion:hover {
     cursor: pointer; }
   .accordion::after {
-    content: '\02795';
+    content: "\02795";
     /* Unicode character for "plus" sign (+) */
     font-size: 13px;
     color: #777;
@@ -5596,5 +5599,80 @@ h4 {
 
 .content_page_title_wrap {
   text-align: center; }
+
+.landing_page_single_brand_a {
+  display: inline-block;
+  position: relative;
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  border: 10px solid #ececec;
+  transition: all 0.2s ease-in-out; }
+  .landing_page_single_brand_a img {
+    width: auto;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto; }
+
+.landing_page_single_brand_name {
+  display: inline-block;
+  width: 100%;
+  font-weight: 600; }
+  .landing_page_single_brand_name h3 {
+    display: inline-block;
+    float: none;
+    position: relative;
+    width: auto;
+    margin-bottom: 15px;
+    margin-bottom: 30px;
+    color: #404040;
+    background: none;
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase; }
+    .landing_page_single_brand_name h3::before {
+      position: absolute;
+      z-index: 1;
+      bottom: -9px;
+      left: 12.5%;
+      width: 75%;
+      height: 3px;
+      margin: auto;
+      content: ""; }
+
+.brand_slideshow_wrap .landing_page_single_brand_wrap:nth-child(4n + 1) h3::before {
+  background: #e96656; }
+
+.brand_slideshow_wrap .landing_page_single_brand_wrap:nth-child(4n + 2) h3::before {
+  background: #34d293; }
+
+.brand_slideshow_wrap .landing_page_single_brand_wrap:nth-child(4n + 3) h3::before {
+  background: #3ab0e2; }
+
+.brand_slideshow_wrap .landing_page_single_brand_wrap:nth-child(4n + 4) h3::before {
+  background: #f7d861; }
+
+.brand_slideshow_wrap .landing_page_single_brand_wrap:nth-child(4n + 1):hover > .landing_page_single_brand_a {
+  border: 10px solid #e96656; }
+
+.brand_slideshow_wrap .landing_page_single_brand_wrap:nth-child(4n + 2):hover > .landing_page_single_brand_a {
+  border: 10px solid #34d293; }
+
+.brand_slideshow_wrap .landing_page_single_brand_wrap:nth-child(4n + 3):hover > .landing_page_single_brand_a {
+  border: 10px solid #3ab0e2; }
+
+.brand_slideshow_wrap .landing_page_single_brand_wrap:nth-child(4n + 4):hover > .landing_page_single_brand_a {
+  border: 10px solid #f7d861; }
+
+#colophon {
+  background-color: #272727;
+  color: #fff; }
+  #colophon a {
+    color: #fff;
+    text-decoration: none; }
 
 /*# sourceMappingURL=style.css.map */

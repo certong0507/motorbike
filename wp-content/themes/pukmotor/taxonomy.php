@@ -14,7 +14,7 @@ get_header(); ?>
 <div class="wrap">
     <!-- <?php the_archive_title('<h2 class="title_font">', '</h2>'); ?> -->
 
-    <h2> <?php $terms = get_the_terms(get_the_ID(), 'brand')[0];
+    <h2 class="title_font title_font_family"> <?php $terms = get_the_terms(get_the_ID(), 'brand')[0];
          echo $terms->name; ?> </h2>
 
     <div id="taxonomy_wrapper">
@@ -36,7 +36,7 @@ get_header(); ?>
          <?php while ($taxonomy_list->have_posts()) :
             $taxonomy_list->the_post(); 
             if( !get_field('condition') ):?>
-             <li class=" col-lg-4 col-md-6 col-xs-12">
+             <li class=" col-lg-3 col-md-6 col-xs-12">
                         <?php get_template_part('template-parts/post/content', get_post_taxonomies()[0]); ?>
                     </li>
         <?php  endif;

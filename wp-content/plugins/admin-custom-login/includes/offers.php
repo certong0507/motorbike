@@ -182,6 +182,109 @@
 						<div class="row p_plugin blog_gallery">
                             <div class="col-xs-12 col-sm-4 col-md-5 p_plugin_pic">
                                 <div class="img-thumbnail">
+                                     <img src="https://weblizar.com/wp-content/uploads/2018/10/Twitter-Tweets-Pro.jpg" class="img-responsive" alt="img"/>
+                               
+                               </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-5 col-md-5 p_plugin_desc">
+                                <div class="row p-box">
+                                    <h2><a href="">Twitter Tweets Pro</a></h2>
+                                    <p><strong>Features: </strong>
+                                        <ul>
+                                            <li>Twitter Tweets Widget</li>
+                                            <li>Multiple Twitter feeds with no limitations</li>
+                                            <li>Feeds of multiple users, hashtags or search terms</li>
+                                            <li>Display Tweets in Slider</li>
+                                            <li>Configurable number of tweets to display</li>
+                                            <li>Leave Management Module</li>
+											<li>Load more Tweets...etc many more.</li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-2 p_plugin_pic">
+                                <div class="price">
+                                    <span class="currency">USD</span>
+                                    <span class="price-number"><span>$19</span></span>
+                                </div>
+                                <div class="btn-group-vertical">
+                                    <a target="_blank" class="btn btn-primary btn-lg" href="https://weblizar.com/plugins/twitter-tweets-pro/">Demo</a>
+                                    <a class="btn btn-success btn-lg" href="https://weblizar.com/plugins/twitter-tweets-pro/">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+						<div class="row p_plugin blog_gallery">
+                            <div class="col-xs-12 col-sm-4 col-md-5 p_plugin_pic">
+                                <div class="img-thumbnail">
+                                     <img src="https://weblizar.com/wp-content/uploads/2018/09/Advanced-Google-Maps.jpg" class="img-responsive" alt="img"/>
+                               
+                               </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-5 col-md-5 p_plugin_desc">
+                                <div class="row p-box">
+                                    <h2><a href="">Advanced Google Maps</a></h2>
+                                    <p><strong>Features: </strong>
+                                        <ul>
+                                            <li>Single Location Map</li>
+                                            <li>Multi Location Map</li>
+                                            <li>Interactive Map</li>
+                                            <li>Route Direction Maps</li>
+                                            <li>Custom Markers</li>
+                                            <li>Map Theme</li>
+											<li>Google Map Widget...etc many more.</li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-2 p_plugin_pic">
+                                <div class="price">
+                                    <span class="currency">USD</span>
+                                    <span class="price-number"><span>$11</span></span>
+                                </div>
+                                <div class="btn-group-vertical">
+                                    <a target="_blank" class="btn btn-primary btn-lg" href="https://weblizar.com/plugins/advanced-google-maps/">Demo</a>
+                                    <a class="btn btn-success btn-lg" href="https://weblizar.com/plugins/advanced-google-maps/">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+						<div class="row p_plugin blog_gallery">
+                            <div class="col-xs-12 col-sm-4 col-md-5 p_plugin_pic">
+                                <div class="img-thumbnail">
+                                     <img src="https://weblizar.com/wp-content/uploads/2018/08/institute-management-pro-details.jpg" class="img-responsive" alt="img"/>
+                               
+                               </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-5 col-md-5 p_plugin_desc">
+                                <div class="row p-box">
+                                    <h2><a href="">Institute Management Pro</a></h2>
+                                    <p><strong>Features: </strong>
+                                        <ul>
+                                            <li>Course Management</li>
+                                            <li>Batch Management</li>
+                                            <li>Enquiry Management</li>
+                                            <li>Student Management</li>
+                                            <li>Fee Management</li>
+                                            <li>Staff Management</li>
+											<li>Access Control...etc many more.</li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-2 p_plugin_pic">
+                                <div class="price">
+                                    <span class="currency">USD</span>
+                                    <span class="price-number"><span>$15</span></span>
+                                </div>
+                                <div class="btn-group-vertical">
+                                    <a target="_blank" class="btn btn-primary btn-lg" href="https://weblizar.com/plugins/institute-management-pro/">Demo</a>
+                                    <a class="btn btn-success btn-lg" href="https://weblizar.com/plugins/institute-management-pro/">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+
+						<div class="row p_plugin blog_gallery">
+                            <div class="col-xs-12 col-sm-4 col-md-5 p_plugin_pic">
+                                <div class="img-thumbnail">
                                      <img src="<?php echo WEBLIZAR_NALF_PLUGIN_URL.'/images/Clockin-Pro.jpg'; ?>" class="img-responsive" alt="img"/>
                                
                                </div>
@@ -392,7 +495,7 @@
                             </div>
                             <div class="col-xs-12 col-sm-5 col-md-5 p_plugin_desc">
                                 <div class="row p-box">
-                                    <h2><a href="">Responsive Portfolio Pro- Perfect Responsive Portfolio Plugin</a></h2>
+                                    <h2><a href="">Responsive Portfolio Pro</a></h2>
                                     <p><strong>Features: </strong>
                                         <ul>
                                             <li>Image Hover Animation</li>

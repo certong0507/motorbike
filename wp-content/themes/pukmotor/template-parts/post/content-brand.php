@@ -5,18 +5,25 @@
             <div class="single_motor_title_brand">
 
                 <?php $term_object = get_the_terms(get_the_ID(), 'brand')[0];
-                      $brand_logo_object = get_field('logo', 'brand'.'_'.$term_object->term_id); ?>
+                $brand_logo_object = get_field('logo', 'brand' . '_' . $term_object->term_id); ?>
 
-                <img src="<?php echo $brand_logo_object['url'] ?>" alt="">
+                <!-- Hide brand's logo -->
+                <!-- <img src="<?php echo $brand_logo_object['url'] ?>" alt=""> -->
 
                 <h3 class="title_font_family"><?php the_title(); ?></h3>
-        
+
+                <?php if (get_field('sales')) : ?>
+                    <p>RM <?php echo number_format_i18n(get_field('promotion_price'), 2); ?></p>
+                    <p class="text_crossed">RM <?php echo number_format_i18n(get_field('display_price'), 2); ?></p>
+                <?php else : ?> 
+                    <p>RM <?php echo number_format_i18n(get_field('display_price'), 2); ?></p>
+                <?php endif; ?>
                 <div class="responsive_price">
                     <?php if (get_field('sales')) : ?>
                         <p>RM <?php echo number_format_i18n(get_field('promotion_price'), 2); ?></p>
-                        <p class="text_crossed">RM <?php echo number_format_i18n(get_field('price'), 2); ?></p>
+                        <p class="text_crossed">RM <?php echo number_format_i18n(get_field('display_price'), 2); ?></p>
                     <?php else : ?> 
-                        <p>RM <?php echo number_format_i18n(get_field('price'), 2); ?></p>
+                        <p>RM <?php echo number_format_i18n(get_field('display_price'), 2); ?></p>
                     <?php endif; ?>
                 </div>
             </div>
@@ -29,12 +36,8 @@
                 <?php endif; ?>
 
                 <div class="single_motor_image_wrapper">
-                    <?php the_post_thumbnail() ?>
+                    <?php the_post_thumbnail('medium') ?>
                 </div>
-
-                <?php if (get_field('condition')) : ?>
-                    <h4><?php echo get_the_terms(get_the_ID(), 'brand')[0]->name; ?></h4>
-                <?php endif; ?>
             </div>
         </a>
     </div>
@@ -48,9 +51,9 @@
 
                 <?php if (get_field('sales')) : ?>
                     <p>RM <?php echo number_format_i18n(get_field('promotion_price'), 2); ?></p>
-                    <p class="text_crossed">RM <?php echo get_field('price'); ?></p>
+                    <p class="text_crossed">RM <?php echo get_field('display_price'); ?></p>
                 <?php else : ?> 
-                    <p>RM <?php echo number_format_i18n(get_field('price'), 2); ?></p>
+                    <p>RM <?php echo number_format_i18n(get_field('display_price'), 2); ?></p>
                 <?php endif; ?>
             </a>
         </div>
