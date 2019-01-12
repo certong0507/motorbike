@@ -27,7 +27,31 @@ echo $terms->name;?>
     </div>
 
     <div id="taxonomy_wrapper">
-    
+    <?php $taxonomy_list = new wp_query(
+    array(
+        'post_type' => 'motor',
+        'posts_per_page' => -1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'brand',
+                'field' => 'slug',
+                'terms' => $terms->slug,
+            ),
+        ),
+    )
+);?>
+        <ul id="motor_list" class="list">
+        <?php while ($taxonomy_list->have_posts()):
+    $taxonomy_list->the_post();
+    if (!get_field('condition')): ?>
+	                <li class=" col-lg-3 col-md-6 col-xs-12">
+	                    <?php get_template_part('template-parts/post/content', get_post_taxonomies()[0]);?>
+	                 </li>
+	            <?php endif;
+endwhile;
+wp_reset_postdata();?>
+        </ul>
+        <ul class="pagination"></ul>
     </div>
 </div>
 <?php get_footer();?>
@@ -38,7 +62,7 @@ jQuery(function($){
    var sortBy = 'DESC';
    var slug = '<?php echo $terms->slug; ?>'
 
-   sortMotorList();
+//    sortMotorList();
 
    $('#sortBy_price').change(function() {
       sortBy = this.value;
@@ -47,6 +71,8 @@ jQuery(function($){
    });
 
    function sortMotorList() {
+      $( "#motor_list" ).html('');
+
       var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
 		var ajaxdata = { "action": "sortby" };
 
@@ -58,6 +84,7 @@ jQuery(function($){
 	        url: ajaxurl,
 	        data: ajaxdata,
 	        success: function(response) {
+                console.log(response);
 	        	if(response) { $( "#taxonomy_wrapper" ).html(response); }
 	        	return false;
 	        }

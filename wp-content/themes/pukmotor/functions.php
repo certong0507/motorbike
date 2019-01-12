@@ -623,12 +623,17 @@ function sort_by_function()
 {
     $slug = "";
 
-    if (isset($_POST['sortBy'])) {
-        $sortBy = $_POST['sortBy'];
-    }
+    try {
+        if (isset($_POST['sortBy'])) {
+            $sortBy = $_POST['sortBy'];
+        }
 
-    if (isset($_POST['slug'])) {
-        $slug = $_POST['slug'];
+        if (isset($_POST['slug'])) {
+            $slug = $_POST['slug'];
+        }
+
+    } catch (Exception $e) {
+        echo 'Message: ' . $e->getMessage();
     }
 
     $args = array(
@@ -638,22 +643,30 @@ function sort_by_function()
             array(
                 'taxonomy' => 'brand',
                 'field' => 'slug',
-                'terms' => 'kawasaki',
-                // 'terms' => $slug,
+                'terms' => $slug,
             ),
         ),
         'meta_key' => 'display_price',
         'orderby' => 'meta_value_num',
-        'order' => 'DESC',
-        // 'order' => $sortBy,
+        'order' => $sortBy,
+        'nopaging' => true
     );
 
     $query = new WP_Query($args);
 
+    // custom_var_dump($query);
+
     if ($query->have_posts()):
-        get_template_part('template-parts/post/content-sort', 'brand');
+        // while ($query->have_posts()):
+        //     $query->the_post();
+        //     if (!get_field('condition')):
+        //         get_template_part('template-parts/post/content', get_post_taxonomies()[0]);
+        //     endif;
+        // endwhile;
+        include( locate_template( 'template-parts/post/content-sort-brand.php' ) );
+        wp_reset_postdata();
     endif;
 }
 
 add_action('wp_ajax_sortby', 'sort_by_function', 10, 1);
-add_action('wp_ajax_nopriv_sortby', 'sort_by_function',10, 1);
+add_action('wp_ajax_nopriv_sortby', 'sort_by_function', 10, 1);

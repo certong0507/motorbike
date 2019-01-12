@@ -5193,11 +5193,17 @@ object {
   .hidden-print {
     display: none !important; } }
 @media (max-width: 1199px) {
+  .background_gradient {
+    display: none !important; }
+
   .single_motor {
     height: auto !important; }
 
   .responsive_price {
     display: inline-block !important; } }
+@media (max-width: 992px) {
+  .background_gradient {
+    display: none !important; } }
 @media (max-width: 480px) {
   .site-title a {
     font-size: 50px; } }

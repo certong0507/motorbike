@@ -63,7 +63,7 @@ $( document ).ready(function() {
       
     var monkeyList = new List('taxonomy_wrapper', {
         valueNames: ['single_motor'],
-        page: 12,
+        page: 8,
         pagination: true
     });
 
